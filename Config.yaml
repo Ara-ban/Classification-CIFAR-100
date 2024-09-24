@@ -1,0 +1,40 @@
+data:
+  dataset: "CIFAR100"
+  trainpath: "/usr/users/s8cifar/neaum/Bureau/classification-cifar-100/opt/Datasets"
+  # testpath: '/dummy/path/to/test'
+  batch_size: 256
+  num_workers: 4
+  valid_ratio: 0.2
+
+optim:
+  scheduler: True
+  algo: SGD
+  # from { SGD , Adam , RMSprop , Adadelta , Adagrad , AdamW , SparseAdam , Adamax , ASGD , LBFGS , Rprop , RMSprop}
+  params:
+    lr: 0.001
+
+training:
+  nepochs: 50
+  early_stopping_patience: 6
+  loss: "CrossEntropyLoss"
+# from {L1loss , MSEloss , NLLLOSS , CrossEntropyLoss , BCELoss , BCEWithLogitsLoss , CTCLoss , KLDivLoss , MSELoss , MarginRankingLoss , HingeEmbeddingLoss , MultiLabelMarginLoss , MultiLabelSoftMarginLoss , MultiMarginLoss , SmoothL1Loss , SoftMarginLoss , CosineEmbeddingLoss , TripletMarginLoss , PoissonNLLLoss , NLLLoss2d , KLdiv , L1Loss , NLLLoss , NLLLoss2d , MSELoss , CrossEntropyLoss , CTCLoss , BCELoss , BCEWithLogitsLoss , MarginRankingLoss , HingeEmbeddingLoss , MultiLabelMarginLoss , MultiLabelSoftMarginLoss , MultiMarginLoss , SmoothL1Loss , SoftMarginLoss , CosineEmbeddingLoss , TripletMarginLoss , PoissonNLLLoss , KLDivLoss , L1Loss , NLLLoss , NLLLoss2d , MSELoss , CrossEntropyLoss , CTCLoss , BCELoss , BCEWithLogitsLoss , MarginRankingLoss , HingeEmbeddingLoss , MultiLabelMarginLoss , MultiLabelSoftMarginLoss , MultiMarginLoss , SmoothL1Loss , SoftMarginLoss , CosineEmbeddingLoss , TripletMarginLoss , PoissonNLLLoss , KLDivLoss , L1Loss , NLLLoss , NLLLoss2d , MSELoss , CrossEntropyLoss , CTCLoss , BCELoss , BCEWithLogitsLoss , MarginRankingLoss , HingeEmbeddingLoss , MultiLabelMarginLoss , MultiLabelSoftMarginLoss , MultiMarginLoss , SmoothL1Loss , SoftMarginLoss , CosineEmbeddingLoss , TripletMarginLoss , PoissonNLLLoss , KLDivLoss , L1Loss , NLLLoss , NLLLoss2d , MSELoss , CrossEntropyLoss , CTCLoss , BCELoss , BCEWithLogitsLoss , MarginRankingLoss , HingeEmbeddingLoss , MultiLabelMarginLoss , MultiLabelSoftMarginLoss , MultiMarginLoss , SmoothL1Loss , SoftMarginLoss , CosineEmbeddingLoss , TripletMarginLoss , PoissonNLLLoss , KLDivLoss , L1Loss , NLLLoss , NLLLoss2d , MSELoss , CrossEntropyLoss , CTCLoss , BCELoss , BCEWithLogitsLoss , MarginRankingLoss , HingeEmbeddingLoss , MultiLabel}
+
+
+regularisation:
+  coef: 0.1
+  type: None
+# from {Lasso , Ridge , None }
+
+logging:
+  wandb:
+    #project: cifar-100-projet-CSMETZ
+    project: my-awesome-project
+    entity: cifar23
+    run_name: schedulertesting_SGD50epochs_lrE-3
+  logdir: "./logs" # Better to provide the fullpath, especially on the cluster
+# model:
+#   class: Linear
+
+model:
+  class: VGG_S11
+  num_layers: 4
